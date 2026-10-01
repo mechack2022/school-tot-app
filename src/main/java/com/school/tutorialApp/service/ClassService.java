@@ -100,11 +100,22 @@ public class ClassService {
         }
         throw new ResourceNotFoundException("Record not found for the id");
      }
+     
+     protected SchoolClass getClassByUuid(UUID classUuid){
+        if(classUuid == null){
+          throw new ResourceNotFoundException("class uUID IS NULL");
+        }
+         Optional<SchoolClass> schoolClass =  classRepository.findById(classUuid);
+         if(schoolClass.isPresent()){
+            return schoolClass.get();
+         }
+         throw new ResourceNotFoundException("Class not found for the provided UUID");
+     }
 
 
     }
 
-    
+     
     
         
         
