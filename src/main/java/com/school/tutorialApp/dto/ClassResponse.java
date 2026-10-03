@@ -13,12 +13,14 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClassResponse {
+    
 
     private UUID id;
 
     private String name;
 
     private String description;
+    private UUID classUuid;
 
     private LocalDateTime createdAt;
 

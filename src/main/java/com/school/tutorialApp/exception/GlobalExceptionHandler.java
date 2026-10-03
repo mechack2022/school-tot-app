@@ -6,10 +6,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,19 +61,23 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ApiResponse<Void>> handleGeneralException(
-            Exception exception
-    ) {
+public ResponseEntity<ApiResponse<Void>> handleGeneralException(
+        Exception exception
+) {
 
-        ApiResponse<Void> response = ApiResponse.<Void>builder()
-                .success(false)
-                .message("An unexpected error occurred")
-                .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
-                .data(null)
-                .build();
+    exception.printStackTrace();
 
-        return ResponseEntity
-                .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(response);
-    }
+    ApiResponse<Void> response = ApiResponse.<Void>builder()
+            .success(false)
+            .message("An unexpected error occurred")
+            .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
+            .data(null)
+            .build();
+
+    return ResponseEntity
+            .status(HttpStatus.INTERNAL_SERVER_ERROR)
+            .body(response);
+}
+
+   
 }

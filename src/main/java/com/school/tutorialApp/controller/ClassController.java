@@ -18,6 +18,8 @@ import java.util.UUID;
 @RestController
 @RequestMapping("api/schoolclass/")
 @RequiredArgsConstructor
+
+
 public class ClassController {
 
     private final ClassService classService;
@@ -29,7 +31,6 @@ public class ClassController {
                 .data(classService.createClass(request))
                 .success(true)
                 .build();
-                classService.createClass(request);
          return apiResponse;
     }
     
@@ -43,7 +44,6 @@ public class ClassController {
         .data(classService.getClassById(id))
         .success(true)
         .build();
-         classService.getClassById(id);
          return apiResponse;
     }
 
@@ -54,7 +54,6 @@ public class ClassController {
         .data(classService.updateclass(id, request))
         .success(true)
         .build();
-         classService.updateclass(id, request);
          return  apiResponse;
 
     }
@@ -81,6 +80,7 @@ public class ClassController {
          return  apiResponse;
 
     }
+    
    
 
     }
