@@ -42,7 +42,7 @@ public class StudentController {
                 .build();
     }
 
-    // 2. This now clearly maps to GET /api/students
+   
     @GetMapping
      public ApiResponse<List<StudentResponse>> getAllStudents() {
         return ApiResponse.<List<StudentResponse>>builder()
